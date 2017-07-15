@@ -8,7 +8,6 @@ class Solution(object):
         """
         if len(nums) * len(nums[0]) != r * c:
             return nums
-        res = [[0 for x in range(c)] for y in range(r)]
-        for i in range(0, r * c):
-            res[i // c][i % c] = nums[i // len(nums[0])][i % len(nums[0])]
-        return res
+        else:
+            flat = iter(sum(nums, []))
+            return [[flat.__next__() for x in range(c)] for y in range(r)]
